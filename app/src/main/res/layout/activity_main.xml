@@ -67,7 +67,7 @@
                 android:layout_marginEnd="12dp"
                 android:text="님의 채팅방"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/main_top_userId" />
+                app:layout_constraintTop_toTopOf="@id/main_top_userId"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -93,7 +93,8 @@
             app:layout_constraintTop_toBottomOf="@id/main_top"
             app:layout_constraintStart_toStartOf="@id/main_top"
             android:textColor="@color/black"
-            android:textSize="14dp"/>
+            android:textSize="14dp"
+            android:paddingStart="20dp"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:tag="sticky"
