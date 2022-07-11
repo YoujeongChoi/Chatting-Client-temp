@@ -36,9 +36,8 @@ public class MainActivity extends AppCompatActivity {
 //    private String ip = "your ip";
     private int port = 8887;
     TextView main_top_userId;
-    TextView textView;
+   // TextView textView;
     String UserID;
-    Button connectbutton;
     ImageButton chatbutton;
     TextView chatView;
     EditText message;
@@ -63,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-
         mHandler = new Handler();
 //        textView = (TextView) findViewById(R.id.textView);
         chatView = (TextView) findViewById(R.id.chatRv);
@@ -75,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         main_top_userId = (TextView) findViewById(R.id.main_top_userId);
         main_top_userId.setText(UserID);
 
-        textView.setText(UserID);
+        // textView.setText(UserID);
         chatbutton = (ImageButton) findViewById(R.id.chatbutton);
 
         new Thread() {
