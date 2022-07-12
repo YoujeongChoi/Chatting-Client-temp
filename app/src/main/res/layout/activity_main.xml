@@ -94,7 +94,8 @@
             app:layout_constraintStart_toStartOf="@id/main_top"
             android:textColor="@color/black"
             android:textSize="14dp"
-            android:paddingStart="20dp"/>
+            android:paddingStart="20dp"
+            android:lineSpacingExtra="5dp"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:tag="sticky"

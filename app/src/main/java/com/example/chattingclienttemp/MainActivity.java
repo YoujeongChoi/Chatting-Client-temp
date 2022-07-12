@@ -5,33 +5,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.DataInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
-import java.net.UnknownHostException;
-import java.nio.Buffer;
 
 public class MainActivity extends AppCompatActivity {
     private Handler mHandler;
     InetAddress serverAddr;
     Socket socket;
-    PrintWriter sendWriter;
+    PrintWriter printwriter;
     String IpAddress;
 //    private String ip = "your ip";
     private int port = 8887;
@@ -48,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         try {
-            sendWriter.close();
+            printwriter.close();
             socket.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -81,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     InetAddress serverAddr = InetAddress.getByName(IpAddress);
                     socket = new Socket(serverAddr, port);
-                    sendWriter = new PrintWriter(socket.getOutputStream());
+                    printwriter = new PrintWriter(socket.getOutputStream());
                     BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     while(true){
                         read = input.readLine();
@@ -104,8 +94,8 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         super.run();
                         try {
-                            sendWriter.println(UserID +": "+ sendmsg);
-                            sendWriter.flush();
+                            printwriter.println(UserID +": "+ sendmsg);
+                            printwriter.flush();
                             message.setText("");
                         } catch (Exception e) {
                             e.printStackTrace();
