@@ -18,7 +18,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 
 public class MainActivity extends AppCompatActivity {
-    private Handler mHandler;
+    private Handler handler;
     InetAddress serverAddr;
     Socket socket;
     PrintWriter printwriter;
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        mHandler = new Handler();
+        handler = new Handler();
 //        textView = (TextView) findViewById(R.id.textView);
         chatView = (TextView) findViewById(R.id.chatRv);
         message = (EditText) findViewById(R.id.getMessageText);
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
                         System.out.println("TTTTTTTT"+read);
                         if(read!=null){
-                            mHandler.post(new msgUpdate(read));
+                            handler.post(new msgUpdate(read));
                         }
                     }
                 } catch (IOException e) {
